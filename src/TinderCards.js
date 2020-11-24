@@ -1,8 +1,10 @@
-import React from 'react'
-import './cards.css'
+import React, {useState} from 'react'
+import './TinderCards.css'
+import TinderCard from 'react-tinder-card'
 
-function cards() {
-    const [person, setPeople]= useState([
+
+function TinderCards() {
+    const [people, setPeople]= useState([
         {
             name : "Elon Musk",
             url : "https://www.gstatic.com/tv/thumb/persons/487130/487130_v9_ba.jpg"
@@ -14,16 +16,16 @@ function cards() {
     ]);
     const swiped = (direction, nameToDelete) =>{
         console.log("removing:"+ nameToDelete);
-        setLastDirection (direction);
+        //setLastDirection (direction);
     };
     const outofFrame=(name)=>{
         console.log(name+"left the screen");
     };
 
     return (
-        <div className='cards'>
+        <div className='tinderCards'>
         <div className='tinderCards_cardContainer'>
-        (people.map((person=>(
+        {people.map((person) => (
             <TinderCard
             className='swipe'
             key={person.name}
@@ -32,8 +34,8 @@ function cards() {
             onCardLeftScreen={() => outofFrame(person.name)}
             >
             <div
-             style={{ backgroundImage:'url(${person.url})'}} 
-             className="cards1"
+             style={{ backgroundImage:`url(${person.url})`}} 
+             className="card"
              >
              <h3>{person.name}</h3>
              </div>
@@ -46,4 +48,4 @@ function cards() {
     );
 }
 
-export default cards
+export default TinderCards

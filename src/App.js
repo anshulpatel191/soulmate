@@ -1,15 +1,17 @@
 
 import './App.css';
 import Header from './Header';
-import cards from './cards';
+import TinderCards from './TinderCards'
+import TinderCard from 'react-tinder-card';
+import SwipeButtons from './SwipeButtons.js'
 
 function App() {
   return (
     <div className="app">
         
         <Header/>
-        <cards/>
-     
+        <TinderCards/>
+        <SwipeButtons/>
     </div>
   );
 }
